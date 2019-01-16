@@ -23,7 +23,14 @@ dataset.info()
 dataset_desc = dataset.describe()
 print(dataset)
 
+Revenue = dataset.iloc[:,10:11].values
 
+from sklearn.preprocessing import Imputer
+
+imputer= Imputer(missing_values='NaN', strategy = 'mean', axis=0 )    
+
+Revenue[:,10:11] = imputer.transform(Revenue[:,10:11])
+print(Revenue)
 
 # **************** GRAFİKLER *************************
 # scatter plot
@@ -51,3 +58,22 @@ plt.figure(figsize=(10,8))
 sns.barplot(dataset['quality'],dataset['total sulfur dioxide'])
 plt.xlabel('Quality').set_size(20)
 plt.ylabel('Total Sulfur Dioxide').set_size(20)
+
+
+
+
+Revenue = dataset.iloc[:,1:2].values
+Metascore = dataset.iloc[:,1:2].values
+
+imputer = imputer.fit(Yas[:,1:4])
+Yas[:,1:4] = imputer.transform(Yas[:,1:4])
+print(Yas)
+
+
+
+#Revenue (Millions)    872 non-null float64
+#Metascore             936 non-null float64
+
+from sklearn.preprocessing import Imputer
+
+imputer= Imputer(missing_values='NaN', strategy = 'mean', axis=0 )    
